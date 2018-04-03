@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Onsei:</strong>
+  <%= @onsei.onsei %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @onsei.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @onsei.text %>
+</p>
+
+<p>
+    <strong>Sound:</strong>
+    <%= image_tag @onsei.onsei_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_onsei_path(@onsei) %> |
+<%= link_to 'Back', onseis_path %>

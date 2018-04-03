@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dougas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Douga</th>
+      <th>Title</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dougas.each do |douga| %>
+      <tr>
+        <td><%= douga.douga %></td>
+        <td><%= douga.title %></td>
+        <td><%= douga.text %></td>
+        <td><%= link_to 'Show', douga %></td>
+        <td><%= link_to 'Edit', edit_douga_path(douga) %></td>
+        <td><%= link_to 'Destroy', douga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Douga', new_douga_path %>
+
+<%= link_to '/ Home Back', posts_path %>

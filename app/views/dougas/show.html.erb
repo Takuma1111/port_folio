@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Douga:</strong>
+  <%= @douga.douga %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @douga.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @douga.text %>
+</p>
+
+
+<p>
+    <strong>Video:</strong>
+    <%= image_tag @douga.douga_url %>
+</p>
+
+<%= link_to 'Edit', edit_douga_path(@douga) %> |
+<%= link_to 'Back', dougas_path %>

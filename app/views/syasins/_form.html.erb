@@ -1,0 +1,37 @@
+<%= form_with(model: syasin, local: true) do |form| %>
+  <% if syasin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(syasin.errors.count, "error") %> prohibited this syasin from being saved:</h2>
+
+      <ul>
+      <% syasin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :syasin_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :syasin_text %>
+  </div>
+
+
+    <div class="field">
+        <%= form.label :syasin %>
+        <%= form.file_field :syasin, id: :syasin_syasin %>
+        <%= form.hidden_field :syasin_cache %>
+    </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

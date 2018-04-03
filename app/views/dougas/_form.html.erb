@@ -1,0 +1,36 @@
+<%= form_with(model: douga, local: true) do |form| %>
+  <% if douga.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(douga.errors.count, "error") %> prohibited this douga from being saved:</h2>
+
+      <ul>
+      <% douga.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :douga_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :douga_text %>
+  </div>
+
+  <div class="field">
+      <%= form.label :douga %>
+      <%= form.file_field :douga, id: :douga_douga %>
+      <%= form.hidden_field :douga_cache %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

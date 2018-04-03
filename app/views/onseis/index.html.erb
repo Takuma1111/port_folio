@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Onseis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Onsei</th>
+      <th>Title</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @onseis.each do |onsei| %>
+      <tr>
+        <td><%= onsei.onsei %></td>
+        <td><%= onsei.title %></td>
+        <td><%= onsei.text %></td>
+        <td><%= link_to 'Show', onsei %></td>
+        <td><%= link_to 'Edit', edit_onsei_path(onsei) %></td>
+        <td><%= link_to 'Destroy', onsei, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Onsei', new_onsei_path %>
+
+<%= link_to '/ Home Back', posts_path %>

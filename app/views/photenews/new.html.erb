@@ -1,0 +1,53 @@
+
+
+<%= form_with(model: photenew, local: true) do |form| %>
+  <% if photenew.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photenew.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% photenew.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :post_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sound %>
+    <%= form.text_field :sound, id: :post_sound %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video, id: :post_video %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :photenew_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :photenew_text %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :photenew_image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

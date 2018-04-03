@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Syasin:</strong>
+  <%= @syasin.syasin %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @syasin.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @syasin.text %>
+</p>
+
+<p>
+    <strong>Phote:</strong>
+    <%= image_tag @syasin.syasin_url %>
+</p>
+
+<%= link_to 'Edit', edit_syasin_path(@syasin) %> |
+<%= link_to 'Back', syasins_path %>

@@ -1,0 +1,33 @@
+<%= form_with(model: onsei, local: true) do |form| %>
+  <% if onsei.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(onsei.errors.count, "error") %> prohibited this onsei from being saved:</h2>
+
+      <ul>
+      <% onsei.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :onsei_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :onsei_text %>
+  </div>
+
+  <div class="field">
+      <%= form.label :onsei %>
+      <%= form.file_field :onsei, id: :onsei_onsei %>
+      <%= form.hidden_field :onsei_cache %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

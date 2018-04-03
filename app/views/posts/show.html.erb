@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <strong>Sound:</strong>
+  <%= @post.sound %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @post.video %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+
+
+<p>
+    <strong>Image:</strong>
+    <%= image_tag @post.image_url %>
+</p>
+
+<p>
+    <strong>Sound:</strong>
+    <%= image_tag @post.sound_url %>
+</p>
+
+
+<p>
+    <strong>Video:</strong>
+    <%= image_tag @post.video_url %>
+</p>
+
+
+<p>
+    <strong>Image:</strong>
+    <%= image_tag @post.video_url %>
+    <video src="<%= @post.video_url %>"  width="320" poster="<% @post.video_url %>" controls muted autoplay>
+
+  <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+  <source src="<%= @post.video_url %>" type="video/mp4">
+    <a href="<%= @post.video_url %>" >動画を再生</a>
+  </video>
+
+
+<p>none： <audio src="<%= @post.sound_url %>" preload="none" controls style="vertical-align: middle;">代替コンテンツ。</audio></p>
+
+
+</p>
+
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
