@@ -30,13 +30,33 @@
         </div>
       </div>
     </nav>
-
     <!-- Page Content -->
     <div class="container">
 
       <!-- Introduction Row -->
       <h1 class="my-4">作品投稿</h1>
       <p>投稿する作品の種類を選んでください</p>
+
+      <script>
+      function listFiles() {
+        gapi.client.drive.files.list({
+          'maxResults': 10
+        }).then(function(response) {
+          appendPre('Files:');
+          var files = response.result.items;
+          if (files && files.length > 0) {
+            for (var i = 0; i < files.length; i++) {
+              var file = files[i];
+              appendPre(file.title + ' (' + file.id + ')');
+            }
+          } else {
+            appendPre('No files found.');
+          }
+        });
+        }
+
+        listFiles()
+      </script>
 
       <!-- Team Members Row -->
       <div class="row">

@@ -24,3 +24,6 @@
 
 /vendor/bundle
 /public/uploads
+
+client_secret.json
+config.json

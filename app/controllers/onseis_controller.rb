@@ -27,16 +27,26 @@ class OnseisController < ApplicationController
   def create
     @onsei = Onsei.new(onsei_params)
 
-    respond_to do |format|
-      if @onsei.save
-        format.html { redirect_to @onsei, notice: 'Onsei was successfully created.' }
-        format.json { render :show, status: :created, location: @onsei }
-      else
-        format.html { render :new }
-        format.json { render json: @onsei.errors, status: :unprocessable_entity }
-      end
-    end
+    session = GoogleDrive::Session.from_config("client_secret.json")
+    file = session.upload_from_file("#{onsei_params[:onsei].tempfile.to_path}","#{onsei_params[:onsei].tempfile.to_path}", convert: false)
+    folder = session.collection_by_title("Music")
+    folder.add(file)
+
+    redirect_to root_path
+
   end
+  #
+  #
+  #   respond_to do |format|
+  #     if @onsei.save
+  #       format.html { redirect_to @onsei, notice: 'Onsei was successfully created.' }
+  #       format.json { render :show, status: :created, location: @onsei }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @onsei.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /onseis/1
   # PATCH/PUT /onseis/1.json

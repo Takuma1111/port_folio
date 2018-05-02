@@ -2,8 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :data]
   before_action :set_syasin, only: [:show]
+
   # GET /posts
   # GET /posts.json
+
   def index
     @posts = Post.all
   end
@@ -36,17 +38,25 @@ class PostsController < ApplicationController
 
   def phote
     @posts = Post.all
-    @photes = Syasin.all
+    session = GoogleDrive::Session.from_config("client_secret.json")
+    folder = session.collection_by_title("Images")
+    @photos = folder.files
   end
 
   def video
     @posts = Post.all
-    @videos = Douga.all
+    session = GoogleDrive::Session.from_config("client_secret.json")
+    folder = session.collection_by_title("Movies")
+    @videos = folder.files
+    
   end
 
   def sound
     @posts = Post.all
-    @sounds = Onsei.all
+    session = GoogleDrive::Session.from_config("client_secret.json")
+    folder = session.collection_by_title("Music")
+    @sounds = folder.files
+
   end
   # GET /posts/new
   def new

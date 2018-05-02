@@ -42,23 +42,25 @@
 
 
 
+
+
         <% @videos.each do |video| %>
 
         <div class="col-lg-3 col-md-4 col-xs-6">
           <p><%= video.title %> <%= link_to '/→About', "video/#{video.id}"%></p>
-          <a href="<%= video.douga_url %>" class="d-block mb-4 h-100">
+          <a href="<%= video.web_view_link %>" class="d-block mb-4 h-100">
 
-
-            <video class="img-fluid img-thumbnail" src="<%= video.douga_url %>"  width="320" poster="<%= video.douga_url %>" controls muted autoplay loop>
-            <source src="<%= video.douga_url %>" type="video/mp4">
-            <a href="<%= video.douga_url %>" >動画を再生</a>
+            <video class="img-fluid img-thumbnail" src="<%= video.web_content_link %>"  width="320" poster="<%= video.thumbnail_link %>" controls muted autoplay loop>
+            <source src="<%= video.web_content_link %>" type="video/mp4">
+            <a href="<%= video.web_content_link %>" >動画を再生</a>
             </video>
 
           </a>
         </div>
-        <!-- <td><%= link_to 'Show', "video/#{video.id}" %></td> -->
 
           <% end %>
+
+
 
 
         <div class="col-lg-3 col-md-4 col-xs-6">

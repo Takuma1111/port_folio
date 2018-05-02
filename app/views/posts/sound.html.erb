@@ -59,13 +59,12 @@
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <p><%= sound.title %> <%= link_to '/→About', "sound/#{sound.id}"%></p>
-            <a href="<%= sound.onsei_url %>" class="d-block mb-4 h-100">
-
-
-              <video class="img-fluid img-thumbnail" src="<%= sound.onsei_url %>"  width="320" poster="https://cdn.pixabay.com/photo/2013/07/12/18/17/equalizer-153212_1280.png" controls muted  loop>
-              <source src="<%= sound.onsei_url %>" type="video/mp4">
-              <a href="<%= sound.onsei_url %>" >動画を再生</a>
+            <a href="<%= sound.thumbnail_link %>" class="d-block mb-4 h-100">
+              <video class="img-fluid img-thumbnail" src="<%= sound.thumbnail_link %>"  width="320" poster="https://cdn.pixabay.com/photo/2013/07/12/18/17/equalizer-153212_1280.png" controls muted loop>
+              <source class: "img-fluid img-thumbnail" src="<%= sound.thumbnail_link %> " type="video/mp4">
+              <a class: "img-fluid img-thumbnail" href="<%= sound.thumbnail_link %>" >動画を再生</a>
               </video>
+
 
             </a>
           </div>

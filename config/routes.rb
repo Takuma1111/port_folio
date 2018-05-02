@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     get "sessions/destroy" => "devise#sessions#new"
 
 
+    get "quick" => "posts#quickstart" 
+
   resources :posts
 
 

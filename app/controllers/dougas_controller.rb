@@ -27,15 +27,27 @@ class DougasController < ApplicationController
   def create
     @douga = Douga.new(douga_params)
 
-    respond_to do |format|
-      if @douga.save
-        format.html { redirect_to @douga, notice: 'Douga was successfully created.' }
-        format.json { render :show, status: :created, location: @douga }
-      else
-        format.html { render :new }
-        format.json { render json: @douga.errors, status: :unprocessable_entity }
-      end
-    end
+  
+    session = GoogleDrive::Session.from_config("client_secret.json")
+
+
+    file = session.upload_from_file("#{douga_params[:douga].tempfile.to_path}","#{douga_params[:douga].tempfile.to_path}", convert: false)
+    # respond_to do |format|
+
+    folder = session.collection_by_title("Movies")
+    folder.add(file)
+
+    redirect_to root_path
+    #
+    # respond_to do |format|
+    #   if @douga.save
+    #     format.html { redirect_to @douga, notice: 'Douga was successfully created.' }
+    #     format.json { render :show, status: :created, location: @douga }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @douga.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /dougas/1
