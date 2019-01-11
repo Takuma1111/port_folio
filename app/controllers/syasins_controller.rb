@@ -32,7 +32,7 @@ class SyasinsController < ApplicationController
 
     session =  GoogleDrive::Session.from_config("client_secret.json")
 
-  # folder = session.collection_by_url("https://drive.google.com/drive/folders/1mNF6P2vk12T2Bq5wi5q_9t-Wa7oPP-9j")
+   # folder = session.collection_by_url("https://drive.google.com/drive/folders/1mNF6P2vk12T2Bq5wi5q_9t-Wa7oPP-9j")
 
     file = session.upload_from_file("#{syasin_params[:syasin].tempfile.to_path}","#{syasin_params[:syasin].tempfile.to_path}", convert: false)
 
