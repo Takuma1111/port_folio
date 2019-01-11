@@ -23,6 +23,9 @@
 .byebug_history
 
 /vendor/bundle
+
+
+
 /public/uploads
 
 client_secret.json

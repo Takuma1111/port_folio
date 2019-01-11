@@ -29,16 +29,19 @@ class SyasinsController < ApplicationController
 
 
     puts "ああああああ", syasin_params
-    session = # GoogleDrive::Session.from_config("client_secret.json")
+
+    session =  GoogleDrive::Session.from_config("client_secret.json")
 
   # folder = session.collection_by_url("https://drive.google.com/drive/folders/1mNF6P2vk12T2Bq5wi5q_9t-Wa7oPP-9j")
 
     file = session.upload_from_file("#{syasin_params[:syasin].tempfile.to_path}","#{syasin_params[:syasin].tempfile.to_path}", convert: false)
+
     # respond_to do |format|
     folder = session.collection_by_title("Images")
     folder.add(file)
 
     redirect_to root_path
+
 
       # if @syasin.save
       #   format.html { redirect_to @syasin, notice: 'Syasin was successfully created.' }
