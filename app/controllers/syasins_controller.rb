@@ -40,6 +40,8 @@ class SyasinsController < ApplicationController
     folder = session.collection_by_title("Images")
     folder.add(file)
 
+    byebug
+
     redirect_to root_path
 
 
